@@ -47,8 +47,8 @@ Things you may want to cover:
 ## groups_usersテーブル
 |Column|Type|Option|
 |------|----|------|
-|users_id|integer|null: false, foreignkey: true|
-|groups_id|integer|null: false, foreignkey: true|
+|user_id|integer|null: false, foreignkey: true|
+|group_id|integer|null: false, foreignkey: true|
 ### Association
 - belongs_to user
 - belongs_to group
@@ -57,9 +57,9 @@ Things you may want to cover:
 ## chatテーブル
 |Column|Type|Option|
 |------|----|------|
-|user_id|int|null: false, foreign_key: true|
-|group_id|int|null: false, foreign_key: true|
-|text|text|null: false|
+|user_id|integer|null: false, foreign_key: true|
+|group_id|integer|null: false, foreign_key: true|
+|text|text||
 |image|text||
 ### Association
 - belongs_to :user
