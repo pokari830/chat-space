@@ -1,0 +1,10 @@
+- @messages.each do |message|
+  .main__contents__chat
+    .main__contents__chat__user
+      = message.user.name
+    .main__contents__chat__date
+      = message.created_at
+  .main__contents__chat__message
+    -if message.text.present?
+      = message.text
+    = image_tag message.image.url, class: 'lower-message__image' if message.image.present?

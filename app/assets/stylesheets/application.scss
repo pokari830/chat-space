@@ -54,12 +54,16 @@ $light-gray: #999999;
     padding: 20px 20px 40px 20px;
     font-weight: bold;
     color: $white;
-    &__name{
+    .gourp__name{
       font-size: 15px;
     }
     &__text{
       font-size: 11px;
     }
+  }
+  .group__name{
+    text-decoration: none;
+    color: $white;
   }
 }
 
@@ -83,6 +87,10 @@ $light-gray: #999999;
       &__menber{
         font-size: 12px;
         color: $light-gray;
+        display: flex;
+        &__person{
+          margin-left: 5px;
+        }
       }
     }
     &__edit{
@@ -128,6 +136,7 @@ $light-gray: #999999;
 
   &__footer{
     background-color: #d2d2d2;
+    position: relative;
     height: 90px;
     display: flex;
     justify-content: space-between;
@@ -140,7 +149,6 @@ $light-gray: #999999;
       justify-content: space-between;
     }
     &__message{
-      position: relative;
       width: calc(100vw - 505px);
     }
     .input__image{
