@@ -10,10 +10,13 @@
         =link_to edit_user_path(current_user), class: "side__nav" do
           = icon("fas", "cog")
   .side__menu
-    .groups
-      - current_user.groups.each do |group| 
-        .groups__name
-          = link_to "#" do
-            = group.name
+    - current_user.groups.each do |group|
+      .groups
+        = link_to group_messages_path(group) , class: "group__name" do
+          = group.name
         .groups__text
-          メッセージはありません
+          - if group.messages.present?
+            - message = group.messages.last
+            = message.text
+          -else
+            %p メッセージはありません
