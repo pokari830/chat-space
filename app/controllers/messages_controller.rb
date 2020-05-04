@@ -3,7 +3,7 @@ class MessagesController < ApplicationController
 
   def index
     @message = Message.new
-    @messages = @group.messages.includes(:user).order(created_at: :desc).limit(3)
+    @messages = @group.messages.includes(:user).order(created_at: :desc)
   end
 
   def create
@@ -11,7 +11,7 @@ class MessagesController < ApplicationController
     if @message.save
       redirect_to group_messages_path(@group), notice: "メッセージが送信されました"
     else
-      @messages = @group.messages.includes(:user).order(created_at: :desc).limit(3)
+      @messages = @group.messages.includes(:user).order(created_at: :desc)
       flash.now[:alert] = 'メッセージを入力してください'
       render :index
     end
