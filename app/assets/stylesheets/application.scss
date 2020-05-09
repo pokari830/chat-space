@@ -110,6 +110,7 @@ $light-gray: #999999;
     }
   }
   &__contents{
+    overflow: scroll;
     padding-top: 35px;
     padding-left: 40px;
     background-color: #fafafa;
