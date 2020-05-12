@@ -1,12 +1,13 @@
 class UsersController < ApplicationController
-  # before_action :set_user, only: [:edit, :show, :update]
+  before_action :set_user, only: [:edit, :update]
 
-  def new
-    @user = User.new
-  end
-
-  def create
-    @user = User.create(user_params)
+  def index
+    return nil if params[:keyword] == ""
+    @users = User.where(["name LIKE ?", "%#{params[:keyword]}%"]).where.not(id: current_user.id).limit(10)
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
   def edit
@@ -20,15 +21,12 @@ class UsersController < ApplicationController
     end
   end
 
-  def show
-  end
-
   private
   def user_params
     params.require(:user).permit(params[:name, :email])
   end
 
-  # def set_user
-  #   @user = User.find(params[:id])
-  # end
+  def set_user
+    @user = User.find(params[:id])
+  end
 end
