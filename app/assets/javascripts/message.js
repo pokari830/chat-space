@@ -74,7 +74,6 @@ $(function(){
         $.each(messages, function(i, message){
           insertHTML += buildHTML(message)
         });
-        console.log("更新成功");
         $(".main__contents").append(insertHTML);
         $(".main__contents").animate({ scrollTop: $(".main__contents")[0].scrollHeight});
       }
