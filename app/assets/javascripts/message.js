@@ -22,6 +22,10 @@ $(function(){
                       <div class="main__contents__chat__user">
                         ${message.user_name}
                       </div>
+                      <div class= "main__contents__chat__date">
+                        ${message.created_at}
+                      </div>
+                    </div>
                       <div class= "main__contents__chat__message">
                         ${message.text}
                       </div>
@@ -32,11 +36,6 @@ $(function(){
   }
 
   $(".new_message").on("submit", function(e){
-    e.preventDefault();
-    $(".send__btn").removeAttr("data-disable-with");
-    var formData = new FormData(this);
-    var url = $(this).attr("action");
-
     var reloadMessages = function(){
       var last_message_id = $(".message:last").data("message-id");
       $.ajax({
@@ -51,7 +50,6 @@ $(function(){
           $.each(messages, function(i, message){
             insertHTML += buildHTML(message)
           });
-          console.log("更新成功");
           $(".main__contents").append(insertHTML);
           $(".main__contents").animate({ scrollTop: $(".main__contents")[0].scrollHeight});
         }
@@ -63,5 +61,5 @@ $(function(){
     if (document.location.href.match(/\/groups\/\d+\/messages/)){
       setInterval(reloadMessages, 7000);
     };
-  });
+  })
 });
