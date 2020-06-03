@@ -54,4 +54,7 @@ $(function(){
       alert("メッセージ送信に失敗しました");
     });
   })
+  if (document.location.href.match(/\/groups\/\d+\/messages/)){
+    setInterval(reloadMessage, 7000);
+  }
 });
