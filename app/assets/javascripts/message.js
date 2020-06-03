@@ -39,6 +39,20 @@ $(function(){
     e.preventDefault();
     var formData = new FormData(this);
     var url = $(this).attr('action')
+    $.ajax({
+      url: url,
+      type: "POST",
+      data: formData,
+      dataType: 'json',
+      processData: false,
+      contentType: false
+    })
+      .done(function(data){
+        var html = buildHTML(data);
+        $('.main__contents').append(html);
+        $('.main__contents').animate({ scrollTop: $('.main__contents')[0].scrollHeight});
+        $('form')[0].reset();
+      })
     var reloadMessages = function(){
       var last_message_id = $(".message:last").data("message-id");
       $.ajax({
