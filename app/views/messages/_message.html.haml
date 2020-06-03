@@ -1,11 +1,10 @@
-.main__contents__chat
-  .main__contents__chat__user
-    = message.user.name
-  .main__contents__chat__date
-    = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
-.main__contents__chat__message
-  - if message.text.present?
-    = message.text
-  = image_tag message.image.url, class: 'lower-message__image' if message.image.present?
-
-
+.message{data: {message: {id: message.id}}}
+  .main__contents__chat
+    .main__contents__chat__user
+      = message.user.name
+    .main__contents__chat__date
+      = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
+  .main__contents__chat__message
+    - if message.text.present?
+      = message.text
+    = image_tag message.image.url, class: 'lower-message__image' if message.image.present?
