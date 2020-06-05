@@ -10,10 +10,10 @@ $(function(){
                       <div class= "main__contents__chat__date">
                         ${message.created_at}
                       </div>
-                      <div class= "main__contents__chat__message">
-                        ${message.text}
-                      <img src=${message.image} >
                     </div>
+                    <div class= "main__contents__chat__message">
+                      ${message.text}
+                    <img src=${message.image} >
                   </div>`
       return html;
     }else{
@@ -26,9 +26,8 @@ $(function(){
                         ${message.created_at}
                       </div>
                     </div>
-                      <div class= "main__contents__chat__message">
-                        ${message.text}
-                      </div>
+                    <div class= "main__contents__chat__message">
+                      ${message.text}
                     </div>
                   </div>`
       return html;
